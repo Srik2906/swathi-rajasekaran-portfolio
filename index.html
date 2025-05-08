@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swathi Rajasekaran - HR Professional</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+        
+        .hero .btn {
+            margin-top: 1rem;
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        /* Expertise Section */
+        .expertise {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .expertise-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .expertise-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .expertise-card ul {
+            list-style-position: inside;
+            margin-bottom: 1rem;
+        }
+        
+        .expertise-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 3px solid var(--secondary);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Accomplishments Section */
+        .accomplishments {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .accomplishment-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .accomplishment-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            position: relative;
+            border-left: 4px solid var(--accent);
+        }
+        
+
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+                top: 20px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">SR</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#accomplishments">Accomplishments</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Swathi Rajasekaran</h1>
+                <h2>Strategic HR Business Partner</h2>
+                <p>Driving organizational success through effective people management, innovative talent strategies, and HR process optimization.</p>
+            
+                <div class="social-links">
+                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:swathisekar89@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+919884431294"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Strategic and hands-on HR Business Partner with over 13 years of expertise in high-growth SaaS and tech startup environments. Skilled in delivering strategic HR partnership, generalist functions, operations, and talent acquisition.</p>
+                    <p>I have a proven track record of driving organizational success through effective people management, innovative talent strategies, and HR process optimization. I am committed to fostering a healthy work environment and culture that aligns employee aspirations with business goals.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>13+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100+</h3>
+                            <p>Employees Managed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>60+</h3>
+                            <p>Roles Filled</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Expertise</h2>
+                <p>Areas where I deliver exceptional value</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Strategic HR & Business Partnership</h3>
+                    <ul>
+                        <li>Cross-functional leadership alignment</li>
+                        <li>Organizational change management</li>
+                        <li>Workforce planning & design</li>
+                        <li>OKR-driven performance processes</li>
+                        <li>Compensation cycle management</li>
+                        <li>Career progression frameworks</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Employee Engagement & Culture</h3>
+                    <ul>
+                        <li>Pulse surveys & feedback systems</li>
+                        <li>Tailored onboarding journeys</li>
+                        <li>Attrition prevention strategies</li>
+                        <li>POSH compliance & training</li>
+                        <li>Remote & distributed team engagement</li>
+                        <li>DEI initiatives & programs</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Talent Acquisition</h3>
+                    <ul>
+                        <li>Full-cycle global hiring</li>
+                        <li>Candidate experience optimization</li>
+                        <li>Agency & platform partnerships</li>
+                        <li>Campus hiring programs</li>
+                        <li>Early-career talent pipelines</li>
+                        <li>Scaling startups (Series B+)</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Compensation & Benefits</h3>
+                    <ul>
+                        <li>Salary benchmarking & analysis</li>
+                        <li>Variable pay program design</li>
+                        <li>Cross-geography C&B operations</li>
+                        <li>Annual budget & comp planning</li>
+                        <li>Tax-optimized salary structures</li>
+                        <li>Benefits administration</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Learning & Development</h3>
+                    <ul>
+                        <li>Interactive training facilitation</li>
+                        <li>Skill gap identification</li>
+                        <li>Career development support</li>
+                        <li>Training needs analysis</li>
+                        <li>Vendor collaboration</li>
+                        <li>Continuous learning promotion</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>HR Operations & Analytics</h3>
+                    <ul>
+                        <li>HRIS implementation & maintenance</li>
+                        <li>HR policy development</li>
+                        <li>Compliance management</li>
+                        <li>People metrics dashboards</li>
+                        <li>Data-driven HR insights</li>
+                        <li>M&A HR integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work Experience</h2>
+                <p>My professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2021 – Present</div>
+                        <h3>HR Business Partner</h3>
+                        <p>NextBillion.ai</p>
+                        <p>Strategic HR leadership, organizational development, and employee experience optimization in a high-growth environment.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2021 – Nov 2021</div>
+                        <h3>Global HR Manager</h3>
+                        <p>Datazoic Machines Pvt Ltd</p>
+                        <p>Led global HR functions, scaled teams, and established HR processes across multiple geographies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2018 – Mar 2021</div>
+                        <h3>HR Operations Specialist</h3>
+                        <p>Freshworks Technologies Pvt Ltd</p>
+                        <p>Streamlined HR operations, performance management systems, and employee engagement initiatives.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2016 – Oct 2018</div>
+                        <h3>Senior Executive – HR</h3>
+                        <p>Drivestream India Pvt Ltd</p>
+                        <p>Managed end-to-end HR processes, recruitment, and employee development programs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Apr 2010 – Nov 2012 & Apr 2014 – Jun 2016</div>
+                        <h3>Senior HRD</h3>
+                        <p>Randstad Technologies</p>
+                        <p>Specialized in technology talent acquisition, HR advisory, and workforce planning solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accomplishments Section -->
+    <section class="accomplishments" id="accomplishments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Accomplishments</h2>
+                <p>Highlights from my professional journey</p>
+            </div>
+            <div class="accomplishment-list">
+                <div class="accomplishment-item">
+                    <h3>Manager Orientation Program</h3>
+                    <p>Designed and executed a comprehensive Manager Orientation Program, improving leadership onboarding and alignment with company culture, resulting in a measurable increase in manager readiness.</p>
+                </div>
+                <div class="accomplishment-item">
+                    <h3>HR Transformation Recognition</h3>
+                    <p>Recognized by the CHRO at Freshworks for contributions to HR transformation and process excellence, demonstrating exceptional impact on organizational effectiveness.</p>
+                </div>
+                <div class="accomplishment-item">
+                    <h3>Cross-Functional Leadership</h3>
+                    <p>Volunteered for cross-functional initiatives such as business continuity planning and internal communications during organizational change, showcasing adaptability and collaborative skills.</p>
+                </div>
+                <div class="accomplishment-item">
+                    <h3>Large-Scale Onboarding</h3>
+                    <p>Successfully conducted onboarding for a cohort of 150+ employees, designing and facilitating an end-to-end induction program that enhanced new hire engagement and retention.</p>
+                </div>
+                <div class="accomplishment-item">
+                    <h3>Flagship HR Initiatives</h3>
+                    <p>Spearheaded flagship HR initiatives, including performance management, rewards and recognition, and competency frameworks, driving measurable improvements in employee satisfaction and morale.</p>
+                </div>
+                <div class="accomplishment-item">
+                    <h3>Startup Scaling</h3>
+                    <p>Scaled a Series B SaaS startup from 60 to 100+ global employees by building people processes from the ground up, creating infrastructure for sustainable growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    &copy; 2025 Swathi Rajasekaran. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+        <a href="#home" class="back-to-top" id="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
